@@ -1,0 +1,31 @@
+---
+# defaults file for reloader
+reloader_ver: 0.0.126
+reloader_mirror: https://github.com/stakater/Reloader/releases/download
+reloader_parent_install_dir: /usr/local
+reloader_arch_map:
+  aarch64: arm64
+  arm64: arm64
+  armv6: armv6
+  x86_64: amd64
+reloader_checksums:
+  # https://github.com/stakater/Reloader/releases/download/v0.0.126/Reloader_0.0.126_checksums.txt
+  '0.0.126':
+    # https://github.com/stakater/Reloader/releases/download/v0.0.126/Reloader_v0.0.126_darwin_arm64.tar.gz
+    darwin_arm64: sha256:58c6778b3ff699410943100fab11ec0aeb74c4e0699453c6dfc455a71bbcc685
+    # https://github.com/stakater/Reloader/releases/download/v0.0.126/Reloader_v0.0.126_darwin_amd64.tar.gz
+    darwin_amd64: sha256:da4e232e70f9bf2fa3c54c9c1f72b46e788c6ecee1aa367ad73a4eedec105b55
+    # https://github.com/stakater/Reloader/releases/download/v0.0.126/Reloader_v0.0.126_linux_386.tar.gz
+    linux_386: sha256:60cbdd7c4366ec801a1be26835bc69f0387a086b39c90983a44d3752e2738d06
+    # https://github.com/stakater/Reloader/releases/download/v0.0.126/Reloader_v0.0.126_linux_amd64.tar.gz
+    linux_amd64: sha256:5dd6bfdc5d28857c66bad10108e3f46c250b33f1fff093630ba45e3ef98ce058
+    # https://github.com/stakater/Reloader/releases/download/v0.0.126/Reloader_v0.0.126_linux_arm64.tar.gz
+    linux_arm64: sha256:e4f01fffc8f6ae97b4566825576183e9cb6396b608d633b1a7cbc60a344afbd5
+    # https://github.com/stakater/Reloader/releases/download/v0.0.126/Reloader_v0.0.126_linux_armv6.tar.gz
+    linux_armv6: sha256:bce06843221496f4ef1bf908832194625019ffd100a1952cb225b6ab26c173e1
+    # https://github.com/stakater/Reloader/releases/download/v0.0.126/Reloader_v0.0.126_windows_386.tar.gz
+    windows_386: sha256:5b06889a21301c2e904b37a4ac00be02f7fb71e7e5ea2470474065f69977efd9
+    # https://github.com/stakater/Reloader/releases/download/v0.0.126/Reloader_v0.0.126_windows_amd64.tar.gz
+    windows_amd64: sha256:24ebe98ddf656e5e82638d3b54ecd3e7e0418594966dc6bca9c00abcb3b2509f
+    # https://github.com/stakater/Reloader/releases/download/v0.0.126/Reloader_v0.0.126_windows_arm64.tar.gz
+    windows_arm64: sha256:dae76fb5786342d4c8a07eec4a562be7d337f734faff0d70ad5490181d87fd30

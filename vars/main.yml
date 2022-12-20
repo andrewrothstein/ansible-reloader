@@ -1,0 +1,13 @@
+---
+# vars file for reloader
+reloader_os: '{{ ansible_system | lower }}'
+reloader_arch: '{{ reloader_arch_map[ansible_architecture] }}'
+reloader_platform: '{{ reloader_os }}_{{ reloader_arch }}'
+reloader_name: Reloader_v{{ reloader_ver }}_{{ reloader_platform }}
+reloader_tgz: '{{ reloader_name }}.{{ reloader_archive_type | default("tar.gz") }}'
+reloader_url: '{{ reloader_mirror }}/v{{ reloader_ver }}/{{ reloader_tgz }}'
+reloader_checksum: '{{ reloader_checksums[reloader_ver][reloader_platform] }}'
+reloader_tmp_tgz: '{{ reloader_tmp_dir | default("/tmp") }}/{{ reloader_tgz }}'
+reloader_install_dir: '{{ reloader_parent_install_dir }}/{{ reloader_name }}'
+reloader_install_exe: '{{ reloader_install_dir }}/Reloader'
+reloader_link: '{{ reloader_parent_install_dir }}/bin/Reloader'

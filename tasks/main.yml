@@ -1,0 +1,57 @@
+---
+- include_role:
+    name: andrewrothstein.unarchive-deps
+- name: resolve platform specific vars
+  include_vars: '{{ item }}'
+  with_first_found:
+    - files:
+        - '{{ ansible_distribution }}-{{ ansible_distribution_release }}.yml'
+        - '{{ ansible_distribution }}.yml'
+        - '{{ ansible_os_family }}.yml'
+      skip: true
+      paths:
+        - '{{ role_path }}/vars'
+- name: check for install at {{ reloader_install_exe }}
+  become: true
+  stat:
+    path: '{{ reloader_install_exe }}'
+  register: reloader_binary
+- when: not reloader_binary.stat.exists
+  block:
+    - name: downloading {{ reloader_url }} to {{ reloader_tmp_tgz }}
+      become: true
+      become_user: root
+      get_url:
+        url: '{{ reloader_url }}'
+        dest: '{{ reloader_tmp_tgz }}'
+        checksum: '{{ reloader_checksum }}'
+        mode: 0644
+    - name: mkdir -p {{ reloader_install_dir }}
+      become: true
+      become_user: root
+      file:
+        path: '{{ reloader_install_dir }}'
+        state: directory
+        mode: 0755
+    - name: unarchiving {{ reloader_tmp_tgz }} to {{ reloader_install_dir }}
+      become: true
+      become_user: root
+      unarchive:
+        remote_src: true
+        src: '{{ reloader_tmp_tgz }}'
+        dest: '{{ reloader_install_dir }}'
+        creates: '{{ reloader_install_exe }}'
+  always:
+    - name: rm -f {{ reloader_tmp_tgz }}
+      become: true
+      become_user: root
+      file:
+        path: '{{ reloader_tmp_tgz }}'
+        state: absent
+- name: linking {{ reloader_link }} to {{ reloader_install_exe }}
+  become: true
+  become_user: root
+  file:
+    src: '{{ reloader_install_exe }}'
+    dest: '{{ reloader_link }}'
+    state: link
