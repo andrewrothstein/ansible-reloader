@@ -44,4 +44,4 @@ dl_ver() {
     dl $ver $app $lchecksums windows arm64
 }
 
-dl_ver ${1:-1.0.41} Reloader
+dl_ver ${1:-1.0.52} Reloader
