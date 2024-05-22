@@ -1,8 +1,9 @@
 ---
-- include_role:
+- name: Installing andrewrothstein.unarchivedeps
+  ansible.builtin.include_role:
     name: andrewrothstein.unarchivedeps
-- name: resolve platform specific vars
-  include_vars: '{{ item }}'
+- name: Resolve platform specific vars
+  ansible.builtin.include_vars: '{{ item }}'
   with_first_found:
     - files:
         - '{{ ansible_distribution }}-{{ ansible_distribution_release }}.yml'
@@ -11,32 +12,33 @@
       skip: true
       paths:
         - '{{ role_path }}/vars'
-- name: check for install at {{ reloader_install_exe }}
+- name: Check for install at {{ reloader_install_exe }}
   become: true
-  stat:
+  ansible.builtin.stat:
     path: '{{ reloader_install_exe }}'
   register: reloader_binary
-- when: not reloader_binary.stat.exists
+- name: Downloading and installing reloader
+  when: not reloader_binary.stat.exists
   block:
-    - name: downloading {{ reloader_url }} to {{ reloader_tmp_tgz }}
+    - name: Downloading {{ reloader_url }} to {{ reloader_tmp_tgz }}
       become: true
       become_user: root
-      get_url:
+      ansible.builtin.get_url:
         url: '{{ reloader_url }}'
         dest: '{{ reloader_tmp_tgz }}'
         checksum: '{{ reloader_checksum }}'
-        mode: 0644
-    - name: mkdir -p {{ reloader_install_dir }}
+        mode: '644'
+    - name: Mkdir -p {{ reloader_install_dir }}
       become: true
       become_user: root
-      file:
+      ansible.builtin.file:
         path: '{{ reloader_install_dir }}'
         state: directory
-        mode: 0755
-    - name: unarchiving {{ reloader_tmp_tgz }} to {{ reloader_install_dir }}
+        mode: '755'
+    - name: Unarchiving {{ reloader_tmp_tgz }} to {{ reloader_install_dir }}
       become: true
       become_user: root
-      unarchive:
+      ansible.builtin.unarchive:
         remote_src: true
         src: '{{ reloader_tmp_tgz }}'
         dest: '{{ reloader_install_dir }}'
@@ -48,10 +50,10 @@
       file:
         path: '{{ reloader_tmp_tgz }}'
         state: absent
-- name: linking {{ reloader_link }} to {{ reloader_install_exe }}
+- name: Linking {{ reloader_link }} to {{ reloader_install_exe }}
   become: true
   become_user: root
-  file:
+  ansible.builtin.file:
     src: '{{ reloader_install_exe }}'
     dest: '{{ reloader_link }}'
     state: link
