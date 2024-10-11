@@ -7,6 +7,7 @@
     - name: Executing 'Reloader --version'
       ansible.builtin.command: /usr/local/bin/Reloader --version
       changed_when: false
+      ignore_errors: true
       register: reloader_test_output
     - name: Output from 'Reloader --version'
       ansible.builtin.debug:

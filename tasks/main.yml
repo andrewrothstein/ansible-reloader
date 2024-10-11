@@ -44,10 +44,10 @@
         dest: '{{ reloader_install_dir }}'
         creates: '{{ reloader_install_exe }}'
   always:
-    - name: rm -f {{ reloader_tmp_tgz }}
+    - name: Rm -f {{ reloader_tmp_tgz }}
       become: true
       become_user: root
-      file:
+      ansible.builtin.file:
         path: '{{ reloader_tmp_tgz }}'
         state: absent
 - name: Linking {{ reloader_link }} to {{ reloader_install_exe }}

@@ -1,6 +1,6 @@
 ---
 # defaults file for reloader
-reloader_ver: 1.0.97
+reloader_ver: 1.1.0
 reloader_mirror: https://github.com/stakater/Reloader/releases/download
 reloader_parent_install_dir: /usr/local
 reloader_arch_map:
@@ -109,3 +109,23 @@ reloader_checksums:
     windows_amd64: sha256:f8b6df77e95aa2e3ee5dfd61058456ac28c927c66f1b80a4bf617ea774ca3bab
     # https://github.com/stakater/Reloader/releases/download/v1.0.97/Reloader_v1.0.97_windows_arm64.tar.gz
     windows_arm64: sha256:805064d4b5bcf28af5dfb6b797dcde8d2c64462c0d1297b289e46df254cc4b18
+  # https://github.com/stakater/Reloader/releases/download/v1.1.0/Reloader_1.1.0_checksums.txt
+  '1.1.0':
+    # https://github.com/stakater/Reloader/releases/download/v1.1.0/Reloader_v1.1.0_darwin_arm64.tar.gz
+    darwin_arm64: sha256:51372c6781b053c5bfabe687c30c7bf0e606ece82b047036307dba6fc28e1bd4
+    # https://github.com/stakater/Reloader/releases/download/v1.1.0/Reloader_v1.1.0_darwin_amd64.tar.gz
+    darwin_amd64: sha256:01678b12c873e71b61f2064f0e86bc1277466024d0ee2bf5756793345ef5a040
+    # https://github.com/stakater/Reloader/releases/download/v1.1.0/Reloader_v1.1.0_linux_386.tar.gz
+    linux_386: sha256:7804e4a8c5c02b37b217bd2aa87f15a67bcdb580b88b9919dd554dfab02f6f66
+    # https://github.com/stakater/Reloader/releases/download/v1.1.0/Reloader_v1.1.0_linux_amd64.tar.gz
+    linux_amd64: sha256:9a3ea13f1ac65cec9f736303c2211e160a3fb366057e3db9197eeb4195834aec
+    # https://github.com/stakater/Reloader/releases/download/v1.1.0/Reloader_v1.1.0_linux_arm64.tar.gz
+    linux_arm64: sha256:de7d2130158a776faab31549778ca20530787d9c1eda4e926af13315e12e9001
+    # https://github.com/stakater/Reloader/releases/download/v1.1.0/Reloader_v1.1.0_linux_armv6.tar.gz
+    linux_armv6: sha256:275f88f10f79b6e4f56412e94d424e1e9d43a26576652957ab69dcba9d9bcfa8
+    # https://github.com/stakater/Reloader/releases/download/v1.1.0/Reloader_v1.1.0_windows_386.tar.gz
+    windows_386: sha256:5c66dc8d9438f3157df5a2ce39d4b957c70583087705a87633194c88916d6996
+    # https://github.com/stakater/Reloader/releases/download/v1.1.0/Reloader_v1.1.0_windows_amd64.tar.gz
+    windows_amd64: sha256:ea4bed2cf82b403bfa932cc8cb3a3dfa8a1ec61551ca0aa12b141f191065be6e
+    # https://github.com/stakater/Reloader/releases/download/v1.1.0/Reloader_v1.1.0_windows_arm64.tar.gz
+    windows_arm64: sha256:178ff57aafd7ccc14a7942ad693b7e58f3603075742503d6bbef97c2ee22dc47
